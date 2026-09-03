@@ -1,0 +1,9 @@
+langchain
+langchain-community
+langchain-ollama
+langchain-text-splitters
+langgraph
+chromadb
+pypdf
+streamlit
+pytest
