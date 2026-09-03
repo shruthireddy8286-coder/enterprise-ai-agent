@@ -107,3 +107,103 @@ def test_open_in_browser_handles_failure():
     with patch("web_actions.webbrowser.open", side_effect=Exception("no display")):
         result = open_in_browser("https://www.youtube.com")
     assert result is False
+
+
+# ---------------------------------------------------------------- expanded categories
+
+def test_book_a_hotel_routes_to_booking_dot_com():
+    result = parse_action_command("I need to book a hotel in Goa")
+    assert result is not None
+    _, url = result
+    assert url == "https://www.booking.com"
+
+
+def test_order_groceries_routes_to_blinkit():
+    result = parse_action_command("order groceries for the week")
+    assert result is not None
+    _, url = result
+    assert url == "https://blinkit.com"
+
+
+def test_order_medicine_routes_to_pharmeasy():
+    result = parse_action_command("I need to order medicines urgently")
+    assert result is not None
+    _, url = result
+    assert url == "https://pharmeasy.in"
+
+
+def test_buy_online_routes_to_amazon():
+    result = parse_action_command("I want to buy online today")
+    assert result is not None
+    _, url = result
+    assert url == "https://www.amazon.com"
+
+
+def test_listen_to_music_routes_to_spotify():
+    result = parse_action_command("I want to listen to music")
+    assert result is not None
+    _, url = result
+    assert url == "https://open.spotify.com"
+
+
+def test_watch_a_movie_routes_to_netflix():
+    result = parse_action_command("let's watch a movie tonight")
+    assert result is not None
+    _, url = result
+    assert url == "https://www.netflix.com"
+
+
+def test_start_a_video_call_routes_to_google_meet():
+    result = parse_action_command("start a video call with the team")
+    assert result is not None
+    _, url = result
+    assert url == "https://meet.google.com"
+
+
+def test_take_a_course_routes_to_coursera():
+    result = parse_action_command("I want to take a course on Python")
+    assert result is not None
+    _, url = result
+    assert url == "https://www.coursera.org"
+
+
+def test_find_a_job_routes_to_linkedin_jobs():
+    result = parse_action_command("help me find a job")
+    assert result is not None
+    _, url = result
+    assert url == "https://www.linkedin.com/jobs"
+
+
+def test_track_my_parcel_routes_to_fedex():
+    result = parse_action_command("track my parcel please")
+    assert result is not None
+    _, url = result
+    assert url == "https://www.fedex.com"
+
+
+def test_check_the_weather_routes_to_weather_dot_com():
+    result = parse_action_command("check the weather for tomorrow")
+    assert result is not None
+    _, url = result
+    assert url == "https://weather.com"
+
+
+def test_open_known_brand_directly_flipkart():
+    result = parse_action_command("open flipkart")
+    assert result is not None
+    _, url = result
+    assert url == "https://www.flipkart.com"
+
+
+def test_open_known_brand_directly_spotify():
+    result = parse_action_command("open spotify")
+    assert result is not None
+    _, url = result
+    assert url == "https://open.spotify.com"
+
+
+def test_open_known_brand_directly_zoom():
+    result = parse_action_command("open zoom")
+    assert result is not None
+    _, url = result
+    assert url == "https://zoom.us"

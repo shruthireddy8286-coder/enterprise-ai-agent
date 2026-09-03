@@ -55,19 +55,31 @@ RAG + chat pipeline untouched. Examples:
 
 | You type | Opens |
 |---|---|
-| `open youtube` | youtube.com |
-| `open github.com` | github.com |
+| `open youtube` / `open flipkart` / `open zoom` / ... (~90 sites known by name) | that site directly |
+| `open github.com` (any raw domain) | that domain |
 | `book a cab` / `need a ride` | Uber |
 | `book bus tickets` | RedBus |
 | `book a train` / `train booking` | IRCTC |
 | `book a flight` | MakeMyTrip |
 | `book movie tickets` | BookMyShow |
 | `order food` | Swiggy |
-| `book a hotel` | Booking.com |
+| `order groceries` | Blinkit |
+| `order medicine` | PharmEasy |
+| `book a hotel` / `book a room` | Booking.com |
+| `buy online` / `shop online` | Amazon |
 | `play some games` / `open online games` | CrazyGames |
+| `listen to music` / `play a song` | Spotify |
+| `watch a movie` / `watch a show` | Netflix |
+| `start a video call` / `join a meeting` | Google Meet |
+| `take a course` / `learn something new` | Coursera |
+| `find a job` | LinkedIn Jobs |
+| `track my parcel` | FedEx |
+| `check the weather` | Weather.com |
+| `read the news` | Google News |
 
-Add or change destinations by editing `KNOWN_SITES` (direct name → URL) or
-`INTENT_ROUTES` (trigger phrases → URL) at the top of `web_actions.py`.
+Add or change destinations by editing `KNOWN_SITES` (direct name → URL,
+grouped by category) or `INTENT_ROUTES` (trigger phrases → URL) at the top
+of `web_actions.py`.
 
 ## Reconstructed modules
 
